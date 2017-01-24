@@ -1,6 +1,9 @@
-image: docker:latest
-
-build:
-  stage: build
+pages:
   script:
-    - echo "OOOOOOKKKKKKK"
+  - mkdir public
+  - echo "COUCOU" > public/index.html
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
