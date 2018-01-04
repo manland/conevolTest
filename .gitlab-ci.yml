@@ -1,9 +1,0 @@
-pages:
-  script:
-  - mkdir public
-  - echo "COUCOU" > public/index.html
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
