@@ -1,0 +1,39 @@
+{
+  "name": "testcontinuousevolution",
+  "version": "0.1.0",
+  "description": "A test file for continuous evolution",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ContinuousEvolution/test.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Continuous Evolution",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/ContinuousEvolution/test/issues"
+  },
+  "homepage": "https://gitlab.com/ContinuousEvolution/test",
+  "devDependencies": {
+    "del": "=3.0.0",
+    "gulp": "=3.9.1",
+    "gulp-cached": "=1.1.1",
+    "gulp-concat": "=2.6.1",
+    "gulp-remember": "=0.3.1",
+    "gulp-sass": "=3.1.0",
+    "gulp-sourcemaps": "=2.6.0",
+    "gulp-typescript": "=3.2.1",
+    "run-sequence": "=2.1.0"
+  },
+  "dependencies": {
+    "reflect-metadata": "=0.1.10",
+    "request": "=2.81.0",
+    "rxjs": "=5.4.3",
+    "ws": "=3.1.0"
+  }
+}
