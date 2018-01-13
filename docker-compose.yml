@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  nsqlookupd:
+    image: nsqio/nsq
+    command: /nsqlookupd
+    ports:
+      - "4160:4160"
+      - "4161:4161"
+
+  nsqd:
+    image: nsqio/nsq
+    command: /nsqd --lookupd-tcp-address=nsqlookupd:4160
+    ports:
+      - "4150:4150"
+      - "4151"
+    depends_on: 
+      - nsqlookupd
+
+  nsqadmin:
+    image: nsqio/nsq
+    command: /nsqadmin --lookupd-http-address=nsqlookupd:4161
+    ports:
+      - "4171:4171"
+    depends_on: 
+      - nsqlookupd
+
+  cli1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /tmp:/tmp
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: -queue-ip=nsqd:4150 -web
+    ports:
+      - "1234:1234"
+    depends_on: 
+      - nsqd
+
+  cli2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /tmp:/tmp
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: -queue-ip=nsqd:4150 -web
+    ports:
+      - "1235:1234"
+    depends_on: 
+      - nsqd
